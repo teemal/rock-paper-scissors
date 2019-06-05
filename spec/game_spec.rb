@@ -63,22 +63,54 @@ describe 'A game of rock paper scissors' do
         expect(game.play(:rock, :scissors)).to eq("Rock beats scissors!")
         expect(game.play(:scissors, :rock)).to eq("Rock beats scissors!")
       end
-      skip('is finished')
+      #skip('is finished')
+      it "is finished" do
+        game = Game.new
+        game.start
+        expect(game.play(:rock, :scissors)).to eq("Rock beats scissors!")
+        expect(game.play(:rock, :scissors)).to eq("Rock beats scissors!")
+      end
     end
 
     context 'rock vs paper' do
-      skip('returns "Paper beats rock!"')
+      # skip('returns "Paper beats rock!"')
+      it "announces when paper beats rock" do
+        game = Game.new
+        game.start
+        expect(game.play(:rock, :paper)).to eq("Paper beats rock!")
+        expect(game.play(:rock, :paper)).to eq("Paper beats rock!")
+      end
       skip('is finished')
     end
 
 
     context 'scissors vs paper' do
-      skip('returns "Scissors vs paper!"')
+      # skip('returns "Scissors beats paper!"')
+      it "announces when scissors beat paper" do
+        game = Game.new
+        game.start
+        expect(game.play(:scissors, :paper)).to eq("Scissors beats paper!")
+        expect(game.play(:scissors, :paper)).to eq("Scissors beats paper!")
+      end
       skip('is finished')
     end
 
     context 'a tie game' do
-      skip('returns "Tie game. Try again!"')
+      # skip('returns "Tie game. Try again!"')
+      it "announces when there is a tie game" do
+        game = Game.new
+        game.start
+        expect(game.play(:scissors, :scissors)).to eq("Tie!")
+        expect(game.play(:scissors, :scissors)).to eq("Tie!")
+        game = Game.new
+        game.start
+        expect(game.play(:paper, :paper)).to eq("Tie!")
+        expect(game.play(:paper, :paper)).to eq("Tie!")
+        game = Game.new
+        game.start
+        expect(game.play(:rock, :rock)).to eq("Tie!")
+        expect(game.play(:rock, :rock)).to eq("Tie!")
+      end
       skip('is not finished')
     end
 
